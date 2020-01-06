@@ -23,7 +23,7 @@ test -d $DIR || mkdir -p $DIR
 
 tbl_count=0
 
-mysqldump -h $DB_host -u $DB_user -p$DB_pass $DB $t | gzip > $DIR/$DB.$t.`date +"\%Y-\%m-\%d"`.sql.gz
-mysql -NBA -h $DB_host -u $DB_user -p$DB_pass -D $DB -e 'truncate table '"$t;"'
+mysqldump -h $DB_host '$DB'.'$t' | gzip > $DIR/$DB.$t.`date +"\%Y-\%m-\%d"`.sql.gz
+mysql -NBA -h $DB_host -D $DB -e 'truncate table '"$t;"'
 
 tbl_count=$(( tbl_count + 1 ))
