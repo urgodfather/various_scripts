@@ -21,4 +21,4 @@ t=$3
 
 wait $BACK_PID20
 
-mysqldump  $DB $t | gzip > $DIR/$DB.`date +"\%Y-\%m-\%d"`.sql.gz & BACK_PID=$! 
+mysqldump  $DB | gzip > $DIR/$DB.`date +"\%Y-\%m-\%d"`.sql.gz & BACK_PID=$! 
